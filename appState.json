@@ -1,0 +1,98 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "d05a7fa2-d275-4755-8574-40e271b52d69": {
+        "id": "d05a7fa2-d275-4755-8574-40e271b52d69",
+        "parent": null,
+        "name": "puppeteer",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "facfc150-3cc7-43d8-8e29-a0a9c87ad01e"
+        ],
+        "isRemovable": false,
+        "filePath": "puppeteer"
+      },
+      "facfc150-3cc7-43d8-8e29-a0a9c87ad01e": {
+        "id": "facfc150-3cc7-43d8-8e29-a0a9c87ad01e",
+        "parent": "d05a7fa2-d275-4755-8574-40e271b52d69",
+        "name": "screenshot.js",
+        "type": "LAMBDA_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "puppeteer/screenshot.js",
+        "code": "const puppeteer = require('puppeteer');\nexports.handler = function(request, response) {\n  const browser = await puppeteer.launch();\n  const page = await browser.newPage();\n  \n  await page.goto('https://github.com');\n  const screenshot = await page.screenshot();\n  response.send(screenshot);\n\n  browser.close();\n}",
+        "triggers": [
+          {
+            "resourceName": "http-trigger",
+            "config": {}
+          }
+        ],
+        "config": {
+          "runtime": "nodejs8.10",
+          "timeout": 20,
+          "memory": 1024,
+          "triggerType": 0
+        }
+      },
+      "772bb75f-4168-49bd-b503-7729ee51a4d9": {
+        "id": "772bb75f-4168-49bd-b503-7729ee51a4d9",
+        "parent": null,
+        "name": "index.js",
+        "type": "JS_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": false,
+        "filePath": "index.js",
+        "code": "// This file is used to register all your cloud functions in GCP.\n// DO NOT EDIT/DELETE THIS, UNLESS YOU KNOW WHAT YOU ARE DOING.\n\nexports.puppeteerscreenshot = require(\"./puppeteer/screenshot.js\").handler;",
+        "triggers": []
+      }
+    },
+    "deletedFiles": [
+      "puppeteer/function.js"
+    ],
+    "rootNode": "d05a7fa2-d275-4755-8574-40e271b52d69",
+    "openFiles": [
+      "facfc150-3cc7-43d8-8e29-a0a9c87ad01e"
+    ],
+    "currentFileId": "facfc150-3cc7-43d8-8e29-a0a9c87ad01e",
+    "resources": {
+      "http-trigger": {
+        "name": "http-trigger",
+        "type": "http-trigger",
+        "config": {},
+        "globallyEditable": false
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": {}
+    },
+    "envVariables": [],
+    "packageJSON": {
+      "dependencies": {
+        "puppeteer": {
+          "name": "puppeteer",
+          "version": "1.14.0"
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "puppeteer",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "europe-west4",
+    "platform": "GCP",
+    "platformRegions": {},
+    "lastSave": 1554739833636
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "puppeteer",
+      "url": "https://github.com/KrishJoshi/puppeteer"
+    }
+  }
+}

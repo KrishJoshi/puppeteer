@@ -8,7 +8,8 @@
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "facfc150-3cc7-43d8-8e29-a0a9c87ad01e"
+          "facfc150-3cc7-43d8-8e29-a0a9c87ad01e",
+          "d641c392-5003-4550-bf0c-52a601512911"
         ],
         "isRemovable": false,
         "filePath": "puppeteer"
@@ -45,17 +46,41 @@
         "children": [],
         "isRemovable": false,
         "filePath": "index.js",
-        "code": "// This file is used to register all your cloud functions in GCP.\n// DO NOT EDIT/DELETE THIS, UNLESS YOU KNOW WHAT YOU ARE DOING.\n\nexports.puppeteerscreenshot = require(\"./puppeteer/screenshot.js\").handler;",
+        "code": "// This file is used to register all your cloud functions in GCP.\n// DO NOT EDIT/DELETE THIS, UNLESS YOU KNOW WHAT YOU ARE DOING.\n\nexports.puppeteerscreenshot = require(\"./puppeteer/screenshot.js\").handler;\nexports.puppeteerHelloWorld = require(\"./puppeteer/HelloWorld.js\").handler;",
         "triggers": []
+      },
+      "d641c392-5003-4550-bf0c-52a601512911": {
+        "id": "d641c392-5003-4550-bf0c-52a601512911",
+        "parent": "d05a7fa2-d275-4755-8574-40e271b52d69",
+        "name": "HelloWorld.js",
+        "type": "LAMBDA_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "puppeteer/HelloWorld.js",
+        "code": "exports.handler = function(request, response) {\n    \n    response.send({\"message\": \"Successfully executed\"});\n}",
+        "triggers": [
+          {
+            "resourceName": "http-trigger",
+            "config": {}
+          }
+        ],
+        "config": {
+          "runtime": "nodejs8.10",
+          "timeout": 60,
+          "memory": 128,
+          "triggerType": 0
+        }
       }
     },
     "deletedFiles": [],
     "rootNode": "d05a7fa2-d275-4755-8574-40e271b52d69",
     "openFiles": [
       "facfc150-3cc7-43d8-8e29-a0a9c87ad01e",
-      "772bb75f-4168-49bd-b503-7729ee51a4d9"
+      "772bb75f-4168-49bd-b503-7729ee51a4d9",
+      "d641c392-5003-4550-bf0c-52a601512911"
     ],
-    "currentFileId": "facfc150-3cc7-43d8-8e29-a0a9c87ad01e",
+    "currentFileId": "d641c392-5003-4550-bf0c-52a601512911",
     "resources": {
       "http-trigger": {
         "name": "http-trigger",
@@ -85,7 +110,7 @@
     "projectRegion": "europe-west4",
     "platform": "GCP",
     "platformRegions": {},
-    "lastSave": 1554799139249
+    "lastSave": 1554799389732
   },
   "VCS_STATE": {
     "provider": "GitHub",

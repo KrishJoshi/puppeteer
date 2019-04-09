@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+
 exports.handler = function(request, response) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();

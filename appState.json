@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "puppeteer/screenshot.js",
-        "code": "const puppeteer = require('puppeteer');\nexports.handler = function(request, response) {\n  const browser = await puppeteer.launch();\n  const page = await browser.newPage();\n  \n  await page.goto('https://github.com');\n  const screenshot = await page.screenshot();\n  response.send(screenshot);\n\n  browser.close();\n}",
+        "code": "const puppeteer = require('puppeteer');\n\nexports.handler = function(request, response) {\n  const browser = await puppeteer.launch();\n  const page = await browser.newPage();\n  \n  await page.goto('https://github.com');\n  const screenshot = await page.screenshot();\n  response.send(screenshot);\n\n  browser.close();\n}",
         "triggers": [
           {
             "resourceName": "http-trigger",
@@ -49,12 +49,11 @@
         "triggers": []
       }
     },
-    "deletedFiles": [
-      "puppeteer/function.js"
-    ],
+    "deletedFiles": [],
     "rootNode": "d05a7fa2-d275-4755-8574-40e271b52d69",
     "openFiles": [
-      "facfc150-3cc7-43d8-8e29-a0a9c87ad01e"
+      "facfc150-3cc7-43d8-8e29-a0a9c87ad01e",
+      "772bb75f-4168-49bd-b503-7729ee51a4d9"
     ],
     "currentFileId": "facfc150-3cc7-43d8-8e29-a0a9c87ad01e",
     "resources": {
@@ -86,7 +85,7 @@
     "projectRegion": "europe-west4",
     "platform": "GCP",
     "platformRegions": {},
-    "lastSave": 1554739833636
+    "lastSave": 1554799139249
   },
   "VCS_STATE": {
     "provider": "GitHub",

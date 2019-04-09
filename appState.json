@@ -90,8 +90,38 @@
       }
     },
     "customTemplate": {
-      "dialect": null,
-      "definitions": {}
+      "dialect": "Deployment Manager",
+      "definitions": {
+        "resources": [
+          {
+            "name": "puppeteerscreenshot",
+            "type": "cloudfunctions.v1beta2.function",
+            "properties": {
+              "location": "europe-west1",
+              "function": "puppeteerscreenshot",
+              "sourceArchiveUrl": "gs://<no-builds-yet>/<no-builds-yet>",
+              "entryPoint": "puppeteerscreenshot",
+              "timeout": "20s",
+              "availableMemoryMb": 1024,
+              "httpsTrigger": {}
+            }
+          },
+          {
+            "name": "puppeteerHelloWorld",
+            "type": "cloudfunctions.v1beta2.function",
+            "properties": {
+              "location": "europe-west1",
+              "function": "puppeteerHelloWorld",
+              "sourceArchiveUrl": "gs://<no-builds-yet>/<no-builds-yet>",
+              "entryPoint": "puppeteerHelloWorld",
+              "timeout": "60s",
+              "availableMemoryMb": 128,
+              "httpsTrigger": {}
+            }
+          }
+        ],
+        "outputs": []
+      }
     },
     "envVariables": [],
     "packageJSON": {
@@ -110,7 +140,7 @@
     "projectRegion": "europe-west4",
     "platform": "GCP",
     "platformRegions": {},
-    "lastSave": 1554799389732
+    "lastSave": 1554805682109
   },
   "VCS_STATE": {
     "provider": "GitHub",
